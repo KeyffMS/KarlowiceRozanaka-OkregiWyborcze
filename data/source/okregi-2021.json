@@ -1,0 +1,703 @@
+{
+  "election_year": 2021,
+  "neighborhood": "Karłowice-Różanka",
+  "sources": {
+    "city_article": "https://www.wroclaw.pl/dla-mieszkanca/karlowice-rozanka-kandydaci-na-radnych-2021",
+    "city_districts_article": "https://www.wroclaw.pl/dla-mieszkanca/okregi-wyborcze-lokale-i-liczby-mandatow-wybory-rady-osiedla-2021",
+    "official_pdf": "https://www.wroclaw.pl/dla-mieszkanca/files/news/46863/Wybory_ro2021_Osiedla_zmiana_wykaz_okregow_obwodow_glosowania.pdf"
+  },
+  "districts": [
+    {
+      "district": 1,
+      "precinct": 84,
+      "seats": 4,
+      "polling_station": "Liceum Ogólnokształcące nr XIV, al. Aleksandra Brücknera 10",
+      "rules": [
+        {
+          "street": "Adama Asnyka",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Adolfa Dygasińskiego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Aleksandra Brücknera",
+          "numbers": {
+            "type": "range_parity",
+            "min": 10,
+            "max": 54,
+            "parity": "even"
+          }
+        },
+        {
+          "street": "Bolesława Krzywoustego",
+          "numbers": {
+            "type": "ranges_exact",
+            "ranges": [
+              [
+                1,
+                109
+              ]
+            ],
+            "exact": [
+              "111"
+            ]
+          }
+        },
+        {
+          "street": "Bolesława Leśmiana",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "bp. Ignacego Krasickiego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Bydgoska",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Franciszka Karpińskiego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Galla Anonima",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "gen. Józefa Wybickiego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Giżycka",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Grudziądzka",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "pl. Gustawa Daniłowskiego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Jana Długosza",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Juliana Klaczki",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Kazimierza Przerwy-Tetmajera",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Kętrzyńska",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Leopolda Staffa",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Ludwika Nabielaka",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Łąka Mazurska",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Macieja Miechowity",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "al. Marcina Kromera",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "pl. Marsz. Józefa Piłsudskiego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "al. Poprzeczna",
+          "numbers": {
+            "type": "exact",
+            "exact": [
+              "33/35",
+              "33A"
+            ]
+          }
+        },
+        {
+          "street": "Stanisława Piętaka",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "al. Tadeusza Boya-Żeleńskiego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Tadeusza Micińskiego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Tadeusza Zelenaya",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Teofila Lenartowicza",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Toruńska",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Wacława Berenta",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Wacława Potockiego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Władysława Orkana",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Zenona Miriama Przesmyckiego",
+          "numbers": {
+            "type": "all"
+          }
+        }
+      ]
+    },
+    {
+      "district": 2,
+      "precinct": 85,
+      "seats": 3,
+      "polling_station": "Szkoła Podstawowa nr 83, ul. Stanisława Przybyszewskiego 59",
+      "rules": [
+        {
+          "street": "al. Jana Kasprowicza",
+          "numbers": {
+            "type": "range",
+            "min": 34,
+            "max": 112
+          }
+        },
+        {
+          "street": "Koszarowa",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Piotra Czajkowskiego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Sołtysowicka",
+          "numbers": {
+            "type": "compound",
+            "clauses": [
+              {
+                "type": "range_parity",
+                "min": 1,
+                "max": 5,
+                "parity": "odd"
+              },
+              {
+                "type": "range_parity",
+                "min": 2,
+                "max": 12,
+                "parity": "even"
+              },
+              {
+                "type": "range",
+                "min": 15,
+                "max": 24
+              }
+            ]
+          }
+        },
+        {
+          "street": "Sportowa",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Stanisława Przybyszewskiego",
+          "numbers": {
+            "type": "all"
+          }
+        }
+      ]
+    },
+    {
+      "district": 3,
+      "precinct": 86,
+      "seats": 3,
+      "polling_station": "Szkoła Podstawowa nr 20, ul. Henryka Michała Kamieńskiego 24",
+      "rules": [
+        {
+          "street": "Artura Oppmana",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Bohdana Zaleskiego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Filomatów",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Forteczna",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Henryka Michała Kamieńskiego",
+          "numbers": {
+            "type": "range",
+            "min": 3,
+            "max": 184
+          }
+        },
+        {
+          "street": "Ignacego Chrzanowskiego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Jana Brzechwy",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Jutrosińska",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Kazimierza Brodzińskiego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Kornela Makuszyńskiego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Kornela Ujejskiego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Krzysztofa Kamila Baczyńskiego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Marii Konopnickiej",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Maurycego Mochnackiego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Mieczysława Romanowskiego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Roberta Kocha",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Samuela Bogumiła Lindego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Seweryna Goszczyńskiego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Skwer Obrońców Helu",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Stanisława Grochowiaka",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Tadeusza Gajcego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Torowa",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Wacława Gąsiorowskiego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Wincentego Pola",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Władysława Anczyca",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Władysława Syrokomli",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Włodzimierza Perzyńskiego",
+          "numbers": {
+            "type": "all"
+          }
+        }
+      ]
+    },
+    {
+      "district": 4,
+      "precinct": 87,
+      "seats": 6,
+      "polling_station": "Liceum Ogólnokształcące nr X, ul. Piesza 1",
+      "rules": [
+        {
+          "street": "al. Jana Kasprowicza",
+          "numbers": {
+            "type": "range",
+            "min": 1,
+            "max": 33
+          }
+        },
+        {
+          "street": "Kępińska",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "ks. Norberta Bonczyka",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Ligocka",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Macedońska",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Na Polance",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Obornicka",
+          "numbers": {
+            "type": "range",
+            "min": 2,
+            "max": 235
+          }
+        },
+        {
+          "street": "Paprotna",
+          "numbers": {
+            "type": "range",
+            "min": 2,
+            "max": 6
+          }
+        },
+        {
+          "street": "Piesza",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Rowerowa",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Władysława Broniewskiego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Wołowska",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Zawalna",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Żmigrodzka",
+          "numbers": {
+            "type": "range",
+            "min": 9,
+            "max": 145
+          }
+        }
+      ]
+    },
+    {
+      "district": 5,
+      "precinct": 88,
+      "seats": 5,
+      "polling_station": "Szkoła Podstawowa nr 50, ul. Czeska 38",
+      "rules": [
+        {
+          "street": "Bałkańska",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Bałtycka",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Bezpieczna",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Bułgarska",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Chorwacka",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Czeska",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Jarocińska",
+          "numbers": {
+            "type": "exact",
+            "exact": [
+              "99"
+            ]
+          }
+        },
+        {
+          "street": "Jugosłowiańska",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Lutycka",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Łużycka",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Młynarska",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Morawska",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Obodrzycka",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Osobowicka",
+          "numbers": {
+            "type": "range",
+            "min": 2,
+            "max": 63
+          }
+        },
+        {
+          "street": "Serbska",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Słowacka",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Teodora Parnickiego",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Weroniki Kumko",
+          "numbers": {
+            "type": "all"
+          }
+        },
+        {
+          "street": "Zaułek Rogoziński",
+          "numbers": {
+            "type": "all"
+          }
+        }
+      ]
+    }
+  ]
+}
