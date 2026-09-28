@@ -470,7 +470,9 @@ def main() -> int:
                 "district": dno,
             })
 
-    coverage_ratio = union_area / boundary_area if boundary_area else 0.0
+    covered_area_report = max(0.0, boundary_area - gap_area)
+    coverage_ratio = covered_area_report / boundary_area if boundary_area else 0.0
+    coverage_ratio = min(1.0, max(0.0, coverage_ratio))
     if coverage_ratio < 0.999:
         raise RuntimeError(f"District coverage is too low: {coverage_ratio:.6f}")
 
@@ -551,7 +553,7 @@ def main() -> int:
         "districts": district_metrics,
         "topology": {
             "boundary_area_m2": round(boundary_area, 2),
-            "covered_area_m2": round(union_area, 2),
+            "covered_area_m2": round(covered_area_report, 2),
             "coverage_ratio": round(coverage_ratio, 9),
             "gap_area_m2": round(gap_area, 4),
             "overlap_area_m2": round(overlap_area, 4),
