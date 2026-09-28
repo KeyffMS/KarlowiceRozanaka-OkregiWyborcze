@@ -1,0 +1,33 @@
+{
+  "retrieved_at_utc": "2026-09-28T17:37:43+00:00",
+  "election_year": 2027,
+  "version_label": "2027 - propozycja miasta",
+  "proposal_status": "propozycja miasta",
+  "source_state_date": "2026-06-30",
+  "sources": [
+    {
+      "name": "SIP — granice osiedli",
+      "url": "https://gis.um.wroc.pl/portal_srv/rest/services/search/MapServer/12/query"
+    },
+    {
+      "name": "SIP — EMUiA punkty adresowe",
+      "url": "https://gis.um.wroc.pl/portal_srv/rest/services/emuia_wroclaw/MapServer/0/query"
+    },
+    {
+      "name": "SIP — działki ewidencyjne",
+      "url": "https://gis.um.wroc.pl/portal_srv/rest/services/Dzia%C5%82ki/MapServer/0/query"
+    },
+    {
+      "name": "Wybory do Rad Osiedli 2027 — Karłowice-Różanka",
+      "url": "file:Geografia Wyborcza Osiedla 2027.pdf#page=9"
+    },
+    {
+      "name": "Wykaz okręgów, obwodów i lokali",
+      "url": "file:KOPBiP_pismo_okregi_obwody.pdf"
+    },
+    {
+      "name": "Oficjalny PDF 2027",
+      "url": "file:WSO_pismo.pdf"
+    }
+  ]
+}
