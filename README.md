@@ -4,6 +4,29 @@ Repozytorium zawiera przestrzenną rekonstrukcję pięciu okręgów wyborczych o
 
 Miasto opublikowało wykazy ulic i numerów adresowych przypisanych do okręgów, ale nie opublikowało gotowych poligonów tych okręgów. Geometrie w tym repozytorium są więc **rekonstrukcją**, a nie urzędowym zbiorem granic okręgów.
 
+## Status i walidacja
+
+Ostatnia rekonstrukcja została wykonana na publicznych danych SIP Wrocławia i przeszła walidację topologiczną oraz adresową:
+
+- **3670** bieżących punktów adresowych EMUiA pasuje do reguł adresowych opublikowanych dla wyborów w 2021 r.;
+- **0** dopasowanych punktów adresowych znajduje się poza poligonem swojego okręgu;
+- **4494** działki ewidencyjne przecinają granicę osiedla i zostały użyte jako podstawowa siatka przestrzenna;
+- **20** działek zawiera punkty adresowe należące do więcej niż jednego okręgu — wszystkie zostały rozdzielone wewnętrznie według najbliższych punktów adresowych, zamiast przypisywania całej działki jednemu okręgowi;
+- pokrycie oficjalnej granicy osiedla przez pięć okręgów: **100%**;
+- luka pomiędzy okręgami a granicą osiedla: **0 m²**;
+- nakładanie się powierzchni okręgów: **0 m²**;
+- wszystkie pięć geometrii przechodzi test poprawności geometrii.
+
+Jeden bieżący punkt EMUiA położony w granicy osiedla — **Sołtysowicka 9** — nie mieści się w opublikowanym wykazie adresowym żadnego z pięciu okręgów z 2021 r. Nie jest używany jako punkt kotwiczący rekonstrukcji. Generator zapisuje ten przypadek w `data/generated/validation.json`.
+
+| Okręg | Dopasowane punkty adresowe | Powierzchnia |
+|---:|---:|---:|
+| 1 | 1107 | 2,352 km² |
+| 2 | 447 | 1,420 km² |
+| 3 | 923 | 1,598 km² |
+| 4 | 475 | 3,613 km² |
+| 5 | 718 | 2,110 km² |
+
 ## Wyniki
 
 Po wykonaniu generatora w katalogu `geojson/` znajdują się:
