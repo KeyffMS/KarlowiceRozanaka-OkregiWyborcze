@@ -61,9 +61,10 @@ Generator `scripts/build_districts.py` wykonuje następujące kroki:
 3. dopasowuje punkty adresowe do reguł wyborczych z 2021 r., uwzględniając zakresy numerów i parzystość;
 4. pobiera działki ewidencyjne przecinające osiedle;
 5. działki zawierające rozpoznane adresy traktuje jako twarde punkty kotwiczące danego okręgu;
-6. działki bez adresu wyborczego przypisuje przestrzennie do najbliższego rozpoznanego adresu, dzięki czemu parki, drogi, tereny usługowe i inne obszary bez mieszkańców dostają ciągłe przypisanie;
-7. geometrię każdego okręgu scala, przycina do oficjalnej granicy osiedla i waliduje;
-8. zapisuje raport walidacji oraz punkty adresowe użyte do rekonstrukcji.
+6. jeżeli na jednej działce znajdują się adresy należące do więcej niż jednego okręgu, dzieli tę działkę wewnętrznie według komórek Voronoi liczonych od punktów adresowych w metrycznym układzie EPSG:2180; dzięki temu granica nie jest arbitralnie przypisana całej działce;
+7. działki bez adresu wyborczego przypisuje przestrzennie do najbliższego rozpoznanego adresu (również w EPSG:2180), dzięki czemu parki, drogi, tereny usługowe i inne obszary bez mieszkańców dostają ciągłe przypisanie;
+8. geometrię każdego okręgu scala, przycina do oficjalnej granicy osiedla i waliduje;
+9. zapisuje raport walidacji, przypadki konfliktowe oraz punkty adresowe użyte do rekonstrukcji.
 
 Takie podejście wykorzystuje działki jako podstawową jednostkę przestrzenną i nie próbuje wymyślać „wyborców” dla terenów bez adresów.
 
