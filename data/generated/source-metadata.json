@@ -1,0 +1,29 @@
+{
+  "retrieved_at_utc": "2026-09-28T16:35:14+00:00",
+  "sources": [
+    {
+      "name": "SIP — granice osiedli",
+      "url": "https://gis.um.wroc.pl/portal_srv/rest/services/search/MapServer/12/query"
+    },
+    {
+      "name": "SIP — EMUiA punkty adresowe",
+      "url": "https://gis.um.wroc.pl/portal_srv/rest/services/emuia_wroclaw/MapServer/0/query"
+    },
+    {
+      "name": "SIP — działki ewidencyjne",
+      "url": "https://gis.um.wroc.pl/portal_srv/rest/services/Dzia%C5%82ki/MapServer/0/query"
+    },
+    {
+      "name": "Wybory do Rad Osiedli 2021 — Karłowice-Różanka",
+      "url": "https://www.wroclaw.pl/dla-mieszkanca/karlowice-rozanka-kandydaci-na-radnych-2021"
+    },
+    {
+      "name": "Wykaz okręgów, obwodów i lokali",
+      "url": "https://www.wroclaw.pl/dla-mieszkanca/okregi-wyborcze-lokale-i-liczby-mandatow-wybory-rady-osiedla-2021"
+    },
+    {
+      "name": "Oficjalny PDF 2021",
+      "url": "https://www.wroclaw.pl/dla-mieszkanca/files/news/46863/Wybory_ro2021_Osiedla_zmiana_wykaz_okregow_obwodow_glosowania.pdf"
+    }
+  ]
+}
