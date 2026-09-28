@@ -1,6 +1,6 @@
 # Raport rekonstrukcji - 2027 - propozycja miasta
 
-Generowanie: `2026-09-28T17:37:43+00:00`
+Generowanie: `2026-09-28T17:52:22+00:00`
 
 ## Wynik walidacji
 
