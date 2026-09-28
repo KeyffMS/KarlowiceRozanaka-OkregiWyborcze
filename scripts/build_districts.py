@@ -13,8 +13,8 @@ from typing import Any, Iterable
 import requests
 from pyproj import Transformer
 from shapely import make_valid
-from shapely.geometry import GeometryCollection, MultiPolygon, Point, Polygon, mapping, shape
-from shapely.ops import transform, unary_union
+from shapely.geometry import GeometryCollection, MultiPoint, MultiPolygon, Point, Polygon, mapping, shape
+from shapely.ops import transform, unary_union, voronoi_diagram
 from shapely.strtree import STRtree
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -314,8 +314,14 @@ def main() -> int:
     print(f"   działki po przycięciu do osiedla: {len(parcels)}")
 
     print("4/7 Kotwiczenie adresów w działkach i przypisanie terenów bez adresów...")
+    to_metric = Transformer.from_crs(4326, 2180, always_xy=True)
+    to_wgs84 = Transformer.from_crs(2180, 4326, always_xy=True)
+    project = lambda g: transform(to_metric.transform, g)
+    unproject = lambda g: transform(to_wgs84.transform, g)
+
     parcel_tree = STRtree(parcel_geoms)
     seed_labels: dict[int, list[int]] = defaultdict(list)
+    seed_rows_by_parcel: dict[int, list[dict[str, Any]]] = defaultdict(list)
 
     for row in matched:
         p = row["point"]
@@ -331,40 +337,103 @@ def main() -> int:
                 chosen = int(nearest)
         if chosen is not None:
             seed_labels[chosen].append(int(row["district"]))
+            seed_rows_by_parcel[chosen].append(row)
             row["parcel_index"] = chosen
 
     parcel_conflicts: list[dict[str, Any]] = []
+    conflict_indices: set[int] = set()
     parcel_label: dict[int, int] = {}
     for idx, labels in seed_labels.items():
         counts = Counter(labels)
-        top = counts.most_common()
-        parcel_label[idx] = int(top[0][0])
-        if len(counts) > 1:
-            parcel_conflicts.append({
-                "parcel_index": idx,
-                "id_swde": parcels[idx]["feature"].get("properties", {}).get("ID_SWDE"),
-                "labels": dict(sorted(counts.items())),
-            })
+        if len(counts) == 1:
+            parcel_label[idx] = int(next(iter(counts)))
+            continue
+        conflict_indices.add(idx)
+        parcel_conflicts.append({
+            "parcel_index": idx,
+            "id_swde": parcels[idx]["feature"].get("properties", {}).get("ID_SWDE"),
+            "labels": dict(sorted(counts.items())),
+            "addresses": [
+                {
+                    "street": row["street"],
+                    "number": row["number"],
+                    "district": int(row["district"]),
+                }
+                for row in seed_rows_by_parcel[idx]
+            ],
+            "resolution": "parcel split by Voronoi cells of electoral address points in EPSG:2180",
+        })
 
-    seed_points = [r["point"] for r in matched]
+    seed_points_metric = [project(r["point"]) for r in matched]
     seed_districts = [int(r["district"]) for r in matched]
-    seed_tree = STRtree(seed_points)
+    seed_tree_metric = STRtree(seed_points_metric)
 
     for idx, parcel in enumerate(parcels):
-        if idx in parcel_label:
+        if idx in parcel_label or idx in conflict_indices:
             continue
-        rep = parcel["geometry"].representative_point()
-        nearest = seed_tree.nearest(rep)
+        rep_metric = project(parcel["geometry"].representative_point())
+        nearest = seed_tree_metric.nearest(rep_metric)
         if nearest is None:
             raise RuntimeError("Could not find nearest electoral address seed.")
         parcel_label[idx] = seed_districts[int(nearest)]
 
     district_parts: dict[int, list[Any]] = {int(d["district"]): [] for d in districts}
     district_parcel_count = Counter()
+
     for idx, parcel in enumerate(parcels):
-        dno = parcel_label[idx]
-        district_parts[dno].append(parcel["geometry"])
-        district_parcel_count[dno] += 1
+        if idx not in conflict_indices:
+            dno = parcel_label[idx]
+            district_parts[dno].append(parcel["geometry"])
+            district_parcel_count[dno] += 1
+            continue
+
+        parcel_metric = project(parcel["geometry"])
+        rows = seed_rows_by_parcel[idx]
+        sites = [project(row["point"]) for row in rows]
+
+        # If several EMUiA records use exactly the same point, collapse identical
+        # sites only when they agree on the district. Different districts at the
+        # same coordinate cannot be separated geometrically and are reported.
+        unique_sites: dict[tuple[float, float], dict[str, Any]] = {}
+        duplicate_site_conflict = False
+        for row, site in zip(rows, sites):
+            key = (round(site.x, 4), round(site.y, 4))
+            existing = unique_sites.get(key)
+            if existing is not None and int(existing["district"]) != int(row["district"]):
+                duplicate_site_conflict = True
+                break
+            unique_sites[key] = {"point": site, "district": int(row["district"])}
+
+        if duplicate_site_conflict:
+            raise RuntimeError(
+                f"Conflicting electoral districts share an identical EMUiA coordinate on parcel "
+                f"{parcels[idx]['feature'].get('properties', {}).get('ID_SWDE')}"
+            )
+
+        site_records = list(unique_sites.values())
+        if len(site_records) < 2:
+            dno = int(site_records[0]["district"])
+            district_parts[dno].append(parcel["geometry"])
+            district_parcel_count[dno] += 1
+            continue
+
+        diagram = voronoi_diagram(
+            MultiPoint([rec["point"] for rec in site_records]),
+            envelope=parcel_metric.envelope,
+            edges=False,
+        )
+        for cell in diagram.geoms:
+            clipped = polygonal(cell.intersection(parcel_metric))
+            if clipped.is_empty:
+                continue
+            representative = clipped.representative_point()
+            nearest_site = min(
+                site_records,
+                key=lambda rec: representative.distance(rec["point"]),
+            )
+            dno = int(nearest_site["district"])
+            district_parts[dno].append(polygonal(unproject(clipped)))
+            district_parcel_count[dno] += 1
 
     parcel_union = polygonal(unary_union(parcel_geoms))
     leftovers = polygonal(boundary.difference(parcel_union))
@@ -380,9 +449,6 @@ def main() -> int:
         district_geoms[dno] = polygonal(unary_union(parts).intersection(boundary))
 
     print("5/7 Walidacja topologii i punktów adresowych...")
-    transformer = Transformer.from_crs(4326, 2180, always_xy=True)
-    project = lambda g: transform(transformer.transform, g)
-
     boundary_area = project(boundary).area
     union_all = polygonal(unary_union(list(district_geoms.values())).intersection(boundary))
     union_area = project(union_all).area
@@ -400,31 +466,6 @@ def main() -> int:
                 "number": row["number"],
                 "district": dno,
             })
-
-    if address_validation_errors:
-        corrected = {d: g for d, g in district_geoms.items()}
-        for row in matched:
-            dno = int(row["district"])
-            p = row["point"]
-            if corrected[dno].covers(p):
-                continue
-            patch = p.buffer(1e-8).intersection(boundary)
-            corrected[dno] = polygonal(corrected[dno].union(patch))
-            for other in corrected:
-                if other != dno:
-                    corrected[other] = polygonal(corrected[other].difference(patch))
-        district_geoms = corrected
-        address_validation_errors = [
-            {"street": row["street"], "number": row["number"], "district": int(row["district"])}
-            for row in matched
-            if not district_geoms[int(row["district"])].covers(row["point"])
-        ]
-        union_all = polygonal(unary_union(list(district_geoms.values())).intersection(boundary))
-        union_area = project(union_all).area
-        gap = polygonal(boundary.difference(union_all))
-        gap_area = project(gap).area if not gap.is_empty else 0.0
-        district_area_sum = sum(project(g).area for g in district_geoms.values())
-        overlap_area = max(0.0, district_area_sum - union_area)
 
     coverage_ratio = union_area / boundary_area if boundary_area else 0.0
     if coverage_ratio < 0.999:
@@ -501,6 +542,7 @@ def main() -> int:
             "current_addresses_not_in_2021_rules": len(unmatched),
             "parcels_intersecting_neighborhood": len(parcels),
             "parcel_seed_conflicts": len(parcel_conflicts),
+            "parcel_seed_conflicts_resolved_by_internal_split": len(parcel_conflicts),
             "leftover_polygon_components": len(leftover_components),
         },
         "districts": district_metrics,
@@ -514,11 +556,19 @@ def main() -> int:
         "validation": {
             "address_points_outside_expected_district": address_validation_errors,
             "parcel_seed_conflicts": parcel_conflicts,
+            "current_addresses_not_in_2021_rules": [
+                {
+                    "street": row["street"],
+                    "number": row["number"],
+                }
+                for row in unmatched
+            ],
         },
         "notes": [
             "Election address rules are historical (2021).",
             "EMUiA address points and cadastral parcel geometries are current at build time.",
-            "Unaddressed parcels are assigned to the nearest address point that matches a 2021 district rule.",
+            "Unaddressed parcels are assigned to the nearest address point that matches a 2021 district rule, using metric EPSG:2180 distance.",
+            "Parcels containing address points from more than one district are split internally with Voronoi cells in EPSG:2180.",
             "The output is a reconstruction, not an official municipal district-boundary dataset.",
         ],
     }
