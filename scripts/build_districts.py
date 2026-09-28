@@ -439,8 +439,8 @@ def main() -> int:
     leftovers = polygonal(boundary.difference(parcel_union))
     leftover_components = list(iter_polygons(leftovers))
     for comp in leftover_components:
-        rep = comp.representative_point()
-        nearest = seed_tree.nearest(rep)
+        rep_metric = project(comp.representative_point())
+        nearest = seed_tree_metric.nearest(rep_metric)
         if nearest is not None:
             district_parts[seed_districts[int(nearest)]].append(comp)
 
