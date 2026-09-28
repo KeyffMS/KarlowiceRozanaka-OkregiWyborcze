@@ -18,10 +18,10 @@ from shapely.ops import transform, unary_union, voronoi_diagram
 from shapely.strtree import STRtree
 
 ROOT = Path(__file__).resolve().parents[1]
-RULES_PATH = ROOT / "data" / "source" / "okregi-2021.json"
-OUT_GEOJSON = ROOT / "geojson"
-OUT_DATA = ROOT / "data" / "generated"
-OUT_DOCS = ROOT / "docs"
+RULES_PATH = ROOT / "data-2021" / "source-2021" / "okregi-wyborcze-2021.json"
+OUT_GEOJSON = ROOT / "geojson-2021"
+OUT_DATA = ROOT / "data-2021" / "generated-2021"
+OUT_DOCS = ROOT / "docs-2021"
 
 BOUNDARY_URL = "https://gis.um.wroc.pl/portal_srv/rest/services/search/MapServer/12/query"
 ADDRESS_URL = "https://gis.um.wroc.pl/portal_srv/rest/services/emuia_wroclaw/MapServer/0/query"
@@ -480,12 +480,14 @@ def main() -> int:
     retrieved_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
     write_geojson(
-        OUT_GEOJSON / "osiedle-karlowice-rozanka.geojson",
+        OUT_GEOJSON / "karlowice-rozanka-granica-osiedla-rekonstrukcja-2021.geojson",
         [feature(boundary, {
             "name": target_name,
             "source": "SIP Wrocławia — granice osiedli",
             "source_url": BOUNDARY_URL.rsplit("/query", 1)[0],
             "crs": "EPSG:4326",
+            "election_year_reference": 2021,
+            "reconstruction_for_election_year": 2021,
         })],
     )
 
@@ -506,7 +508,7 @@ def main() -> int:
             "crs": "EPSG:4326",
         }
         f = feature(geom, props)
-        write_geojson(OUT_GEOJSON / f"okreg-{dno}.geojson", [f])
+        write_geojson(OUT_GEOJSON / f"karlowice-rozanka-okreg-{dno}-2021.geojson", [f])
         combined_features.append(f)
         district_metrics[str(dno)] = {
             "matched_addresses": int(by_district_seed[dno]),
@@ -516,7 +518,7 @@ def main() -> int:
             "geometry_type": geom.geom_type,
         }
 
-    write_geojson(OUT_GEOJSON / "karlowice-rozanka-okregi-2021.geojson", combined_features)
+    write_geojson(OUT_GEOJSON / "karlowice-rozanka-okregi-wyborcze-2021.geojson", combined_features)
 
     matched_features = []
     for row in matched:
@@ -527,8 +529,9 @@ def main() -> int:
             "number": row["number"],
             "postal_code": props.get("KOD_POCZTOWY"),
             "source_objectid": props.get("OBJECTID"),
+            "election_year": 2021,
         }))
-    write_geojson(OUT_DATA / "addresses-2021-matched.geojson", matched_features)
+    write_geojson(OUT_DATA / "adresy-dopasowane-2021.geojson", matched_features)
 
     validation = {
         "generated_at_utc": retrieved_at,
@@ -577,14 +580,15 @@ def main() -> int:
             "The output is a reconstruction, not an official municipal district-boundary dataset.",
         ],
     }
-    (OUT_DATA / "validation.json").write_text(
+    (OUT_DATA / "validation-2021.json").write_text(
         json.dumps(validation, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
 
-    (OUT_DATA / "source-metadata.json").write_text(
+    (OUT_DATA / "source-metadata-2021.json").write_text(
         json.dumps({
             "retrieved_at_utc": retrieved_at,
+            "election_year": 2021,
             "sources": [
                 {"name": "SIP — granice osiedli", "url": BOUNDARY_URL},
                 {"name": "SIP — EMUiA punkty adresowe", "url": ADDRESS_URL},
@@ -598,7 +602,7 @@ def main() -> int:
     )
 
     summary_lines = [
-        "# Raport rekonstrukcji",
+        "# Raport rekonstrukcji - wybory 2021",
         "",
         f"Generowanie: `{retrieved_at}`",
         "",
@@ -630,10 +634,10 @@ def main() -> int:
         "Poligony są rekonstrukcją. Przynależność adresów wynika z urzędowego wykazu wyborczego z 2021 r.; "
         "przebieg po terenach bez adresów wynika z bieżącego układu działek i najbliższych punktów adresowych przypisanych do okręgów.",
         "",
-        "Szczegóły maszynowe: `data/generated/validation.json`.",
+        "Szczegóły maszynowe: `data-2021/generated-2021/validation-2021.json`.",
         "",
     ]
-    (OUT_DOCS / "summary.md").write_text("\n".join(summary_lines), encoding="utf-8")
+    (OUT_DOCS / "summary-2021.md").write_text("\n".join(summary_lines), encoding="utf-8")
 
     combined_json = json.dumps({"type": "FeatureCollection", "features": combined_features}, ensure_ascii=False)
     html = f"""<!doctype html>
@@ -675,7 +679,7 @@ info.addTo(map);
 </body>
 </html>
 """
-    (OUT_DOCS / "index.html").write_text(html, encoding="utf-8")
+    (OUT_DOCS / "index-2021.html").write_text(html, encoding="utf-8")
 
     print("7/7 Gotowe.")
     print(json.dumps({

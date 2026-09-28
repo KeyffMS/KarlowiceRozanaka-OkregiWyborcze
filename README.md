@@ -17,7 +17,7 @@ Ostatnia rekonstrukcja została wykonana na publicznych danych SIP Wrocławia i 
 - nakładanie się powierzchni okręgów: **0 m²**;
 - wszystkie pięć geometrii przechodzi test poprawności geometrii.
 
-Jeden bieżący punkt EMUiA położony w granicy osiedla — **Sołtysowicka 9** — nie mieści się w opublikowanym wykazie adresowym żadnego z pięciu okręgów z 2021 r. Nie jest używany jako punkt kotwiczący rekonstrukcji. Generator zapisuje ten przypadek w `data/generated/validation.json`.
+Jeden bieżący punkt EMUiA położony w granicy osiedla — **Sołtysowicka 9** — nie mieści się w opublikowanym wykazie adresowym żadnego z pięciu okręgów z 2021 r. Nie jest używany jako punkt kotwiczący rekonstrukcji. Generator zapisuje ten przypadek w `data-2021/generated-2021/validation-2021.json`.
 
 | Okręg | Dopasowane punkty adresowe | Powierzchnia |
 |---:|---:|---:|
@@ -27,19 +27,23 @@ Jeden bieżący punkt EMUiA położony w granicy osiedla — **Sołtysowicka 9**
 | 4 | 475 | 3,613 km² |
 | 5 | 718 | 2,110 km² |
 
+## Konwencja nazw - 2021
+
+Wszystkie katalogi i pliki wynikowe dotyczące tego zestawu mają w nazwie **2021**, aby nie mieszać ich z ewentualnymi rekonstrukcjami dla innych wyborów. Główne katalogi to `geojson-2021/`, `data-2021/`, `docs-2021/`, `scripts-2021/` i `pdf-2021/`.
+
 ## Wyniki
 
-Po wykonaniu generatora w katalogu `geojson/` znajdują się:
+Po wykonaniu generatora w katalogu `geojson-2021/` znajdują się:
 
-- `okreg-1.geojson`
-- `okreg-2.geojson`
-- `okreg-3.geojson`
-- `okreg-4.geojson`
-- `okreg-5.geojson`
-- `karlowice-rozanka-okregi-2021.geojson` — wszystkie pięć okręgów w jednym pliku
-- `osiedle-karlowice-rozanka.geojson` — oficjalna granica osiedla użyta jako maska
+- `karlowice-rozanka-okreg-1-2021.geojson`
+- `karlowice-rozanka-okreg-2-2021.geojson`
+- `karlowice-rozanka-okreg-3-2021.geojson`
+- `karlowice-rozanka-okreg-4-2021.geojson`
+- `karlowice-rozanka-okreg-5-2021.geojson`
+- `karlowice-rozanka-okregi-wyborcze-2021.geojson` — wszystkie pięć okręgów w jednym pliku
+- `karlowice-rozanka-granica-osiedla-rekonstrukcja-2021.geojson` — oficjalna granica osiedla użyta jako maska
 
-Wszystkie pliki wynikowe są w **WGS84 / EPSG:4326** i nadają się do bezpośredniego użycia na podkładzie OpenStreetMap, w Leaflet, MapLibre, QGIS itd.
+Wszystkie pliki GeoJSON wynikowe są w **WGS84 / EPSG:4326** i nadają się do bezpośredniego użycia na podkładzie OpenStreetMap, w Leaflet, MapLibre, QGIS itd. Dodatkowo katalog `pdf-2021/` zawiera sześciostronicowy dokument `Karlowice-Rozanka_okregi-wyborcze_2021.pdf`: na pierwszej stronie mapę pięciu okręgów, a na kolejnych stronach mapę każdego okręgu i adresy zgodne z ogłoszeniem z 2021 r.
 
 ## Źródła
 
@@ -51,7 +55,7 @@ Urząd Miejski Wrocławia opublikował dla Karłowic–Różanki pięć okręgó
 - https://www.wroclaw.pl/dla-mieszkanca/okregi-wyborcze-lokale-i-liczby-mandatow-wybory-rady-osiedla-2021
 - PDF: https://www.wroclaw.pl/dla-mieszkanca/files/news/46863/Wybory_ro2021_Osiedla_zmiana_wykaz_okregow_obwodow_glosowania.pdf
 
-Znormalizowany zapis reguł znajduje się w `data/source/okregi-2021.json`.
+Znormalizowany zapis reguł znajduje się w `data-2021/source-2021/okregi-wyborcze-2021.json`.
 
 ### 2. Oficjalna granica osiedla
 
@@ -77,7 +81,7 @@ SIP opisuje publiczne zbiory adresowe i granice osiedli jako dane dostępne do p
 
 ## Metoda rekonstrukcji
 
-Generator `scripts/build_districts.py` wykonuje następujące kroki:
+Generator `scripts-2021/build-districts-2021.py` wykonuje następujące kroki:
 
 1. pobiera oficjalną granicę Karłowic–Różanki;
 2. pobiera aktualne punkty adresowe EMUiA położone w tej granicy;
@@ -104,9 +108,9 @@ Wykaz wyborczy pochodzi z **2021 r.**, natomiast miejski SIP udostępnia bieżą
 
 Po każdym uruchomieniu generator zapisuje:
 
-- `data/generated/validation.json` — statystyki i testy spójności,
-- `data/generated/addresses-2021-matched.geojson` — rozpoznane punkty adresowe z przypisanym okręgiem,
-- `docs/summary.md` — czytelne podsumowanie.
+- `data-2021/generated-2021/validation-2021.json` — statystyki i testy spójności,
+- `data-2021/generated-2021/adresy-dopasowane-2021.geojson` — rozpoznane punkty adresowe z przypisanym okręgiem,
+- `docs-2021/summary-2021.md` — czytelne podsumowanie.
 
 Podstawowy warunek poprawności: każdy rozpoznany punkt adresowy z oficjalnego wykazu musi leżeć w poligonie odpowiadającego mu okręgu, a suma pięciu geometrii ma pokrywać granicę osiedla bez zamierzonych luk.
 
@@ -116,14 +120,14 @@ Lokalnie:
 
 ```bash
 python -m pip install -r requirements.txt
-python scripts/build_districts.py
+python scripts-2021/build-districts-2021.py
 ```
 
 Repozytorium zawiera również workflow GitHub Actions. Po zmianie reguł lub generatora wynik może zostać odtworzony automatycznie z publicznych źródeł miejskich.
 
 ## Podgląd
 
-`docs/index.html` ładuje pięć plików GeoJSON na podkładzie OpenStreetMap i pozwala szybko sprawdzić przebieg granic.
+`docs-2021/index-2021.html` ładuje pięć plików GeoJSON na podkładzie OpenStreetMap i pozwala szybko sprawdzić przebieg granic.
 
 ## Issues
 
