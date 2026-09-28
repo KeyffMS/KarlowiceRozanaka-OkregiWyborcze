@@ -4,6 +4,13 @@ Repozytorium zawiera przestrzenną rekonstrukcję pięciu okręgów wyborczych o
 
 Miasto opublikowało wykazy ulic i numerów adresowych przypisanych do okręgów, ale nie opublikowało gotowych poligonów tych okręgów. Geometrie w tym repozytorium są więc **rekonstrukcją**, a nie urzędowym zbiorem granic okręgów.
 
+## Wersje danych
+
+- **2021** - rekonstrukcja na podstawie ogłoszenia wyborczego z 2021 r.; katalogi z sufiksem `-2021`.
+- **2027 - propozycja miasta** - rekonstrukcja przekazanej przez miasto propozycji dla planowanych wyborów w 2027 r., według tabeli ze stanem na 30 czerwca 2026 r.; katalogi z sufiksem `-2027-propozycja-miasta`. Ta wersja nie jest oznaczana jako ostatecznie uchwalony podział.
+
+Szczegóły wersji 2027: [README-2027-propozycja-miasta.md](README-2027-propozycja-miasta.md).
+
 ## Status i walidacja
 
 Ostatnia rekonstrukcja została wykonana na publicznych danych SIP Wrocławia i przeszła walidację topologiczną oraz adresową:
