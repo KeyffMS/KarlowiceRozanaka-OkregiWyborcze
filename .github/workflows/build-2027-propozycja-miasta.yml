@@ -47,4 +47,5 @@ jobs:
             exit 0
           fi
           git commit -m "Generate 2027 city proposal GeoJSON and PDF"
+          git pull --rebase origin main
           git push
