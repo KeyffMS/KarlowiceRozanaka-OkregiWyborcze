@@ -28,6 +28,23 @@ Równoległa do zestawu 2021 rekonstrukcja przestrzenna pięciu okręgów wyborc
 
 Razem: **21 mandatów, 29252 mieszkańców** według tabeli miasta.
 
+## Walidacja wyniku
+
+Końcowy przebieg generatora dla wersji **2027 - propozycja miasta**:
+
+- bieżące punkty adresowe EMUiA w granicy osiedla: **3671**;
+- dopasowane do reguł propozycji: **3670**;
+- niedopasowany bieżący adres: **Sołtysowicka 9**;
+- niejednoznaczne dopasowania reguł: **0**;
+- działki przecinające osiedle: **4494**;
+- działki z adresami więcej niż jednego okręgu: **20**, wszystkie rozdzielone wewnętrznie;
+- punkty adresowe poza przypisanym okręgiem: **0**;
+- pokrycie granicy osiedla: **100%**;
+- luka: **0 m²**;
+- nakładanie powierzchniowe: **0 m²**.
+
+Przy bieżących danych SIP wynikowa geometria pięciu okręgów jest identyczna z geometrią rekonstrukcji 2021. Wersje różnią się jednak regułami źródłowymi, numerami obwodów, danymi o mieszkańcach i oznaczeniem statusu propozycji.
+
 ## Metoda
 
 Metoda rekonstrukcji jest taka sama jak dla wersji 2021:
