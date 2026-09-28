@@ -1,6 +1,6 @@
-# Raport rekonstrukcji
+# Raport rekonstrukcji - wybory 2021
 
-Generowanie: `2026-09-28T16:42:12+00:00`
+Generowanie: `2026-09-28T17:20:14+00:00`
 
 ## Wynik walidacji
 
@@ -27,4 +27,4 @@ Generowanie: `2026-09-28T16:42:12+00:00`
 
 Poligony są rekonstrukcją. Przynależność adresów wynika z urzędowego wykazu wyborczego z 2021 r.; przebieg po terenach bez adresów wynika z bieżącego układu działek i najbliższych punktów adresowych przypisanych do okręgów.
 
-Szczegóły maszynowe: `data/generated/validation.json`.
+Szczegóły maszynowe: `data-2021/generated-2021/validation-2021.json`.
