@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-28T16:39:22+00:00",
+  "generated_at_utc": "2026-09-28T16:40:51+00:00",
   "election_year": 2021,
   "neighborhood": "Karłowice-Różanka",
   "inputs": {
@@ -14,9 +14,9 @@
   },
   "counts": {
     "current_addresses_in_neighborhood": 3671,
-    "matched_2021_addresses": 3669,
+    "matched_2021_addresses": 3670,
     "ambiguous_rule_matches": 0,
-    "current_addresses_not_in_2021_rules": 2,
+    "current_addresses_not_in_2021_rules": 1,
     "parcels_intersecting_neighborhood": 4494,
     "parcel_seed_conflicts": 20,
     "parcel_seed_conflicts_resolved_by_internal_split": 20,
@@ -24,7 +24,7 @@
   },
   "districts": {
     "1": {
-      "matched_addresses": 1106,
+      "matched_addresses": 1107,
       "parcel_count": 1393,
       "area_m2": 2351636.68,
       "valid_geometry": true,
@@ -551,10 +551,6 @@
       }
     ],
     "current_addresses_not_in_2021_rules": [
-      {
-        "street": "Poprzeczna",
-        "number": "33-35"
-      },
       {
         "street": "Sołtysowicka",
         "number": "9"

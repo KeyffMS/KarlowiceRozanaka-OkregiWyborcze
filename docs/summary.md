@@ -1,6 +1,6 @@
 # Raport rekonstrukcji
 
-Generowanie: `2026-09-28T16:39:22+00:00`
+Generowanie: `2026-09-28T16:40:51+00:00`
 
 ## Wynik walidacji
 
@@ -8,7 +8,7 @@ Generowanie: `2026-09-28T16:39:22+00:00`
 - Pokrycie pięcioma okręgami: **100.000006%**
 - Luka powierzchniowa: **0.00 m²**
 - Nakładanie powierzchniowe: **0.00 m²**
-- Rozpoznane punkty adresowe z reguł 2021: **3669**
+- Rozpoznane punkty adresowe z reguł 2021: **3670**
 - Niejednoznaczne dopasowania reguł: **0**
 - Konflikty okręgów w obrębie tej samej działki: **20**
 - Punkty adresowe poza swoim poligonem po walidacji: **0**
@@ -17,7 +17,7 @@ Generowanie: `2026-09-28T16:39:22+00:00`
 
 | Okręg | Adresy kotwiczące | Działki | Powierzchnia |
 |---:|---:|---:|---:|
-| 1 | 1106 | 1393 | 2.352 km² |
+| 1 | 1107 | 1393 | 2.352 km² |
 | 2 | 447 | 610 | 1.420 km² |
 | 3 | 923 | 1027 | 1.598 km² |
 | 4 | 475 | 611 | 3.613 km² |
