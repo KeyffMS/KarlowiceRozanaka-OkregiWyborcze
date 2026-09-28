@@ -1,11 +1,11 @@
 # Raport rekonstrukcji
 
-Generowanie: `2026-09-28T16:40:51+00:00`
+Generowanie: `2026-09-28T16:42:12+00:00`
 
 ## Wynik walidacji
 
 - Powierzchnia osiedla: **11.093 km²**
-- Pokrycie pięcioma okręgami: **100.000006%**
+- Pokrycie pięcioma okręgami: **100.000000%**
 - Luka powierzchniowa: **0.00 m²**
 - Nakładanie powierzchniowe: **0.00 m²**
 - Rozpoznane punkty adresowe z reguł 2021: **3670**
