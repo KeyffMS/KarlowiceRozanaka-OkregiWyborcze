@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-28T16:35:14+00:00",
+  "generated_at_utc": "2026-09-28T16:39:22+00:00",
   "election_year": 2021,
   "neighborhood": "Karłowice-Różanka",
   "inputs": {
@@ -19,41 +19,42 @@
     "current_addresses_not_in_2021_rules": 2,
     "parcels_intersecting_neighborhood": 4494,
     "parcel_seed_conflicts": 20,
+    "parcel_seed_conflicts_resolved_by_internal_split": 20,
     "leftover_polygon_components": 66
   },
   "districts": {
     "1": {
       "matched_addresses": 1106,
-      "parcel_count": 1401,
-      "area_m2": 2338867.55,
+      "parcel_count": 1393,
+      "area_m2": 2351636.68,
       "valid_geometry": true,
       "geometry_type": "MultiPolygon"
     },
     "2": {
       "matched_addresses": 447,
-      "parcel_count": 593,
-      "area_m2": 1452167.78,
+      "parcel_count": 610,
+      "area_m2": 1419761.19,
       "valid_geometry": true,
       "geometry_type": "MultiPolygon"
     },
     "3": {
       "matched_addresses": 923,
-      "parcel_count": 1024,
-      "area_m2": 1631719.46,
+      "parcel_count": 1027,
+      "area_m2": 1598461.96,
       "valid_geometry": true,
       "geometry_type": "MultiPolygon"
     },
     "4": {
       "matched_addresses": 475,
-      "parcel_count": 594,
-      "area_m2": 3570718.15,
+      "parcel_count": 611,
+      "area_m2": 3612998.17,
       "valid_geometry": true,
-      "geometry_type": "MultiPolygon"
+      "geometry_type": "Polygon"
     },
     "5": {
       "matched_addresses": 718,
-      "parcel_count": 882,
-      "area_m2": 2099143.41,
+      "parcel_count": 885,
+      "area_m2": 2109758.35,
       "valid_geometry": true,
       "geometry_type": "MultiPolygon"
     }
@@ -74,7 +75,20 @@
         "labels": {
           "1": 1,
           "2": 1
-        }
+        },
+        "addresses": [
+          {
+            "street": "Leopolda Staffa",
+            "number": "35",
+            "district": 1
+          },
+          {
+            "street": "Stanisława Przybyszewskiego",
+            "number": "86-94",
+            "district": 2
+          }
+        ],
+        "resolution": "parcel split by Voronoi cells of electoral address points in EPSG:2180"
       },
       {
         "parcel_index": 688,
@@ -82,7 +96,20 @@
         "labels": {
           "1": 1,
           "3": 1
-        }
+        },
+        "addresses": [
+          {
+            "street": "Władysława Syrokomli",
+            "number": "7",
+            "district": 3
+          },
+          {
+            "street": "Stanisława Piętaka",
+            "number": "2",
+            "district": 1
+          }
+        ],
+        "resolution": "parcel split by Voronoi cells of electoral address points in EPSG:2180"
       },
       {
         "parcel_index": 3529,
@@ -90,7 +117,40 @@
         "labels": {
           "4": 5,
           "5": 1
-        }
+        },
+        "addresses": [
+          {
+            "street": "Obornicka",
+            "number": "102",
+            "district": 4
+          },
+          {
+            "street": "Obornicka",
+            "number": "100",
+            "district": 4
+          },
+          {
+            "street": "Obornicka",
+            "number": "106",
+            "district": 4
+          },
+          {
+            "street": "Obornicka",
+            "number": "98",
+            "district": 4
+          },
+          {
+            "street": "Bezpieczna",
+            "number": "5a",
+            "district": 5
+          },
+          {
+            "street": "Obornicka",
+            "number": "104",
+            "district": 4
+          }
+        ],
+        "resolution": "parcel split by Voronoi cells of electoral address points in EPSG:2180"
       },
       {
         "parcel_index": 4399,
@@ -98,7 +158,25 @@
         "labels": {
           "4": 2,
           "5": 1
-        }
+        },
+        "addresses": [
+          {
+            "street": "Żmigrodzka",
+            "number": "58",
+            "district": 4
+          },
+          {
+            "street": "Żmigrodzka",
+            "number": "56",
+            "district": 4
+          },
+          {
+            "street": "Bałtycka",
+            "number": "1",
+            "district": 5
+          }
+        ],
+        "resolution": "parcel split by Voronoi cells of electoral address points in EPSG:2180"
       },
       {
         "parcel_index": 2279,
@@ -106,7 +184,50 @@
         "labels": {
           "3": 1,
           "4": 7
-        }
+        },
+        "addresses": [
+          {
+            "street": "Kępińska",
+            "number": "10",
+            "district": 4
+          },
+          {
+            "street": "Kępińska",
+            "number": "7a",
+            "district": 4
+          },
+          {
+            "street": "Kępińska",
+            "number": "7",
+            "district": 4
+          },
+          {
+            "street": "Kępińska",
+            "number": "5",
+            "district": 4
+          },
+          {
+            "street": "Kępińska",
+            "number": "14",
+            "district": 4
+          },
+          {
+            "street": "Kępińska",
+            "number": "7b",
+            "district": 4
+          },
+          {
+            "street": "Kępińska",
+            "number": "12",
+            "district": 4
+          },
+          {
+            "street": "Torowa",
+            "number": "18",
+            "district": 3
+          }
+        ],
+        "resolution": "parcel split by Voronoi cells of electoral address points in EPSG:2180"
       },
       {
         "parcel_index": 3793,
@@ -114,7 +235,20 @@
         "labels": {
           "4": 1,
           "5": 1
-        }
+        },
+        "addresses": [
+          {
+            "street": "Chorwacka",
+            "number": "43",
+            "district": 5
+          },
+          {
+            "street": "Obornicka",
+            "number": "74c",
+            "district": 4
+          }
+        ],
+        "resolution": "parcel split by Voronoi cells of electoral address points in EPSG:2180"
       },
       {
         "parcel_index": 1761,
@@ -122,7 +256,20 @@
         "labels": {
           "1": 1,
           "2": 1
-        }
+        },
+        "addresses": [
+          {
+            "street": "Tadeusza Boya-Żeleńskiego",
+            "number": "44",
+            "district": 1
+          },
+          {
+            "street": "Stanisława Przybyszewskiego",
+            "number": "2",
+            "district": 2
+          }
+        ],
+        "resolution": "parcel split by Voronoi cells of electoral address points in EPSG:2180"
       },
       {
         "parcel_index": 1227,
@@ -130,7 +277,20 @@
         "labels": {
           "1": 1,
           "3": 1
-        }
+        },
+        "addresses": [
+          {
+            "street": "Bolesława Leśmiana",
+            "number": "10",
+            "district": 1
+          },
+          {
+            "street": "Władysława Syrokomli",
+            "number": "31",
+            "district": 3
+          }
+        ],
+        "resolution": "parcel split by Voronoi cells of electoral address points in EPSG:2180"
       },
       {
         "parcel_index": 2651,
@@ -138,7 +298,20 @@
         "labels": {
           "3": 1,
           "4": 1
-        }
+        },
+        "addresses": [
+          {
+            "street": "Wincentego Pola",
+            "number": "2",
+            "district": 3
+          },
+          {
+            "street": "Jana Kasprowicza",
+            "number": "30",
+            "district": 4
+          }
+        ],
+        "resolution": "parcel split by Voronoi cells of electoral address points in EPSG:2180"
       },
       {
         "parcel_index": 3976,
@@ -146,7 +319,20 @@
         "labels": {
           "4": 1,
           "5": 1
-        }
+        },
+        "addresses": [
+          {
+            "street": "Obornicka",
+            "number": "61",
+            "district": 4
+          },
+          {
+            "street": "Bałtycka",
+            "number": "8",
+            "district": 5
+          }
+        ],
+        "resolution": "parcel split by Voronoi cells of electoral address points in EPSG:2180"
       },
       {
         "parcel_index": 3980,
@@ -154,7 +340,20 @@
         "labels": {
           "4": 1,
           "5": 1
-        }
+        },
+        "addresses": [
+          {
+            "street": "Obornicka",
+            "number": "59",
+            "district": 4
+          },
+          {
+            "street": "Bałtycka",
+            "number": "4",
+            "district": 5
+          }
+        ],
+        "resolution": "parcel split by Voronoi cells of electoral address points in EPSG:2180"
       },
       {
         "parcel_index": 1296,
@@ -162,7 +361,20 @@
         "labels": {
           "1": 1,
           "3": 1
-        }
+        },
+        "addresses": [
+          {
+            "street": "Stanisława Piętaka",
+            "number": "1",
+            "district": 1
+          },
+          {
+            "street": "Władysława Syrokomli",
+            "number": "5",
+            "district": 3
+          }
+        ],
+        "resolution": "parcel split by Voronoi cells of electoral address points in EPSG:2180"
       },
       {
         "parcel_index": 904,
@@ -170,7 +382,20 @@
         "labels": {
           "1": 1,
           "3": 1
-        }
+        },
+        "addresses": [
+          {
+            "street": "Bolesława Leśmiana",
+            "number": "20",
+            "district": 1
+          },
+          {
+            "street": "Władysława Syrokomli",
+            "number": "41",
+            "district": 3
+          }
+        ],
+        "resolution": "parcel split by Voronoi cells of electoral address points in EPSG:2180"
       },
       {
         "parcel_index": 1667,
@@ -178,7 +403,20 @@
         "labels": {
           "1": 1,
           "2": 1
-        }
+        },
+        "addresses": [
+          {
+            "street": "Jana Kasprowicza",
+            "number": "98",
+            "district": 2
+          },
+          {
+            "street": "bp. Ignacego Krasickiego",
+            "number": "1",
+            "district": 1
+          }
+        ],
+        "resolution": "parcel split by Voronoi cells of electoral address points in EPSG:2180"
       },
       {
         "parcel_index": 895,
@@ -186,7 +424,25 @@
         "labels": {
           "1": 1,
           "2": 2
-        }
+        },
+        "addresses": [
+          {
+            "street": "Zenona Miriama Przesmyckiego",
+            "number": "10",
+            "district": 1
+          },
+          {
+            "street": "Stanisława Przybyszewskiego",
+            "number": "65",
+            "district": 2
+          },
+          {
+            "street": "Stanisława Przybyszewskiego",
+            "number": "63",
+            "district": 2
+          }
+        ],
+        "resolution": "parcel split by Voronoi cells of electoral address points in EPSG:2180"
       },
       {
         "parcel_index": 905,
@@ -194,7 +450,20 @@
         "labels": {
           "1": 1,
           "3": 1
-        }
+        },
+        "addresses": [
+          {
+            "street": "Władysława Syrokomli",
+            "number": "39",
+            "district": 3
+          },
+          {
+            "street": "Bolesława Leśmiana",
+            "number": "18",
+            "district": 1
+          }
+        ],
+        "resolution": "parcel split by Voronoi cells of electoral address points in EPSG:2180"
       },
       {
         "parcel_index": 2337,
@@ -202,7 +471,20 @@
         "labels": {
           "3": 1,
           "4": 1
-        }
+        },
+        "addresses": [
+          {
+            "street": "Jana Kasprowicza",
+            "number": "24",
+            "district": 4
+          },
+          {
+            "street": "Samuela Bogumiła Lindego",
+            "number": "1",
+            "district": 3
+          }
+        ],
+        "resolution": "parcel split by Voronoi cells of electoral address points in EPSG:2180"
       },
       {
         "parcel_index": 908,
@@ -210,7 +492,20 @@
         "labels": {
           "1": 1,
           "3": 1
-        }
+        },
+        "addresses": [
+          {
+            "street": "Bolesława Leśmiana",
+            "number": "14",
+            "district": 1
+          },
+          {
+            "street": "Władysława Syrokomli",
+            "number": "35",
+            "district": 3
+          }
+        ],
+        "resolution": "parcel split by Voronoi cells of electoral address points in EPSG:2180"
       },
       {
         "parcel_index": 916,
@@ -218,7 +513,20 @@
         "labels": {
           "1": 1,
           "2": 1
-        }
+        },
+        "addresses": [
+          {
+            "street": "Tadeusza Boya-Żeleńskiego",
+            "number": "8",
+            "district": 1
+          },
+          {
+            "street": "Jana Kasprowicza",
+            "number": "91",
+            "district": 2
+          }
+        ],
+        "resolution": "parcel split by Voronoi cells of electoral address points in EPSG:2180"
       },
       {
         "parcel_index": 1992,
@@ -226,14 +534,38 @@
         "labels": {
           "3": 1,
           "4": 1
-        }
+        },
+        "addresses": [
+          {
+            "street": "Samuela Bogumiła Lindego",
+            "number": "22",
+            "district": 3
+          },
+          {
+            "street": "ks. Norberta Bonczyka",
+            "number": "35A",
+            "district": 4
+          }
+        ],
+        "resolution": "parcel split by Voronoi cells of electoral address points in EPSG:2180"
+      }
+    ],
+    "current_addresses_not_in_2021_rules": [
+      {
+        "street": "Poprzeczna",
+        "number": "33-35"
+      },
+      {
+        "street": "Sołtysowicka",
+        "number": "9"
       }
     ]
   },
   "notes": [
     "Election address rules are historical (2021).",
     "EMUiA address points and cadastral parcel geometries are current at build time.",
-    "Unaddressed parcels are assigned to the nearest address point that matches a 2021 district rule.",
+    "Unaddressed parcels are assigned to the nearest address point that matches a 2021 district rule, using metric EPSG:2180 distance.",
+    "Parcels containing address points from more than one district are split internally with Voronoi cells in EPSG:2180.",
     "The output is a reconstruction, not an official municipal district-boundary dataset."
   ]
 }
