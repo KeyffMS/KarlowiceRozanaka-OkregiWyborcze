@@ -77,6 +77,9 @@ def normalize_number(value: str | None) -> str:
     value = clean_ascii(str(value)).upper()
     value = re.sub(r"\s+", "", value)
     value = value.replace("–", "-").replace("—", "-")
+    # EMUiA currently records some combined house numbers with a dash
+    # although the 2021 election list used a slash (e.g. 33-35 vs 33/35).
+    value = re.sub(r"^(\d+)-(\d+)$", r"\1/\2", value)
     return value
 
 
