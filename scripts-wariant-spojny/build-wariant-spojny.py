@@ -315,16 +315,31 @@ def main():
         else:
             rp=proj(pg.representative_point()); ni=int(seedtree.nearest(rp)); parts[seed_ds[ni]].append(pg)
 
+    # Działki nie pokrywają dróg i części terenów publicznych. Uzupełniamy te obszary
+    # najbliższym adresem-kotwicą, aby pięć okręgów pokrywało całe osiedle.
+    parcel_union=poly(unary_union(pgeoms))
+    leftovers=poly(boundary.difference(parcel_union))
+    left_geoms=[]
+    if isinstance(leftovers,Polygon): left_geoms=[leftovers]
+    elif isinstance(leftovers,MultiPolygon): left_geoms=list(leftovers.geoms)
+    else: left_geoms=[g for g in getattr(leftovers,"geoms",[]) if isinstance(g,Polygon)]
+    for comp in left_geoms:
+        rp=proj(comp.representative_point()); ni=int(seedtree.nearest(rp))
+        parts[seed_ds[ni]].append(comp)
+
     districts={d:poly(unary_union(parts[d]).intersection(boundary)) for d in range(1,6)}
 
-    # official street axes from city geoportal
-    sfc=query_geojson(STREETS_URL,{"where":"STATUS_KOD='istniejąca'","outFields":"OBJECTID,KLASA,KATEGORIA,STATUS_KOD","geometry":env,"geometryType":"esriGeometryEnvelope","inSR":4326,"spatialRel":"esriSpatialRelIntersects"},page=1000)
-    streets=[]
+    # Oficjalne odcinki osi ulic z SIP Wrocławia. Nazwy pobieramy wyłącznie
+    # technicznie; w PDF nie są renderowane.
+    sfc=query_geojson(STREETS_URL,{"where":"1=1","outFields":"OBJECTID,KLASA,KATEGORIA,STATUS_KOD","geometry":env,"geometryType":"esriGeometryEnvelope","inSR":4326,"spatialRel":"esriSpatialRelIntersects"},page=1000)
+    streets_all=[]
     for f in sfc["features"]:
         try:g=shape(f["geometry"]).intersection(boundary)
         except:continue
         if g.is_empty:continue
-        f["geometry"]=mapping(g); streets.append(f)
+        f["geometry"]=mapping(g); streets_all.append(f)
+    existing=[f for f in streets_all if "istniej" in str(f.get("properties",{}).get("STATUS_KOD","")).lower()]
+    streets=existing if existing else streets_all
 
     # write actual GIS layers
     write_fc(GEO/"granica-osiedla.geojson",[feat(boundary,{"name":"Karłowice-Różanka","source":"SIP Wrocławia"})])
