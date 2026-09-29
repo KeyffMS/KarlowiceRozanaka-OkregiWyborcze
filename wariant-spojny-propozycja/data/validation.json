@@ -2,7 +2,7 @@
   "source_residential_addresses": 3670,
   "variant_assigned_addresses": 3670,
   "unassigned_source_addresses": 0,
-  "addresses_outside_variant_polygon": 1,
+  "addresses_outside_variant_polygon": 0,
   "district_address_counts": {
     "1": 701,
     "2": 1634,
