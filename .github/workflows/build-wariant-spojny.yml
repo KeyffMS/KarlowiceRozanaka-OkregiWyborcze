@@ -1,0 +1,45 @@
+name: Build coherent district proposal
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts-wariant-spojny/**"
+      - "requirements-wariant-spojny.txt"
+      - ".github/workflows/build-wariant-spojny.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-wariant-spojny.txt
+      - run: python -m pip install -r requirements-wariant-spojny.txt
+      - name: Build GIS-grounded proposal
+        run: python scripts-wariant-spojny/build-wariant-spojny.py
+      - name: Upload proposal artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: wariant-spojny-propozycja
+          path: wariant-spojny-propozycja/
+      - name: Commit generated proposal
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add wariant-spojny-propozycja
+          if git diff --cached --quiet; then
+            echo "No generated changes"
+            exit 0
+          fi
+          git commit -m "Generate GIS-grounded coherent district proposal"
+          git pull --rebase origin main
+          git push
