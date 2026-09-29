@@ -36,7 +36,7 @@ TMP=OUT/"tmp"
 BOUNDARY_URL="https://gis.um.wroc.pl/portal_srv/rest/services/search/MapServer/12/query"
 ADDRESS_URL="https://gis.um.wroc.pl/portal_srv/rest/services/emuia_wroclaw/MapServer/0/query"
 PARCEL_URL="https://gis.um.wroc.pl/portal_srv/rest/services/Dzia%C5%82ki/MapServer/0/query"
-STREETS_URL="https://gis.um.wroc.pl/portal_srv/rest/services/podklad_mocny_odniesienie/MapServer/18/query"
+STREETS_URL="https://gis.um.wroc.pl/portal_srv/rest/services/search/MapServer/2/query"
 
 COLORS={1:"#D73027",2:"#4575B4",3:"#1A9850",4:"#762A83",5:"#F28E2B"}
 SESSION=requests.Session()
@@ -220,8 +220,13 @@ def plot_map(path,boundary,districts,streets,focus=None):
     for f in streets:
         try:g=shape(f["geometry"])
         except:continue
-        code=f.get("properties",{}).get("WYSW_KOD")
-        lw={3:1.7,2:1.35,1:0.85,5:0.7}.get(code,0.75)
+        klass=(f.get("properties",{}).get("KLASA") or "").lower()
+        if "autostrada" in klass or "ekspres" in klass: lw=1.8
+        elif "główna" in klass or "glowna" in klass: lw=1.45
+        elif "zbiorcza" in klass: lw=1.15
+        elif "lokalna" in klass: lw=0.82
+        elif "dojazdowa" in klass: lw=0.62
+        else: lw=0.72
         gs=[g] if g.geom_type=="LineString" else list(getattr(g,"geoms",[]))
         for line in gs:
             xs,ys=line.xy
@@ -313,7 +318,7 @@ def main():
     districts={d:poly(unary_union(parts[d]).intersection(boundary)) for d in range(1,6)}
 
     # official street axes from city geoportal
-    sfc=query_geojson(STREETS_URL,{"where":"1=1","outFields":"OBJECTID,WYSW_KOD,TYP_OSI","geometry":env,"geometryType":"esriGeometryEnvelope","inSR":4326,"spatialRel":"esriSpatialRelIntersects"},page=2000)
+    sfc=query_geojson(STREETS_URL,{"where":"STATUS_KOD='istniejąca'","outFields":"OBJECTID,KLASA,KATEGORIA,STATUS_KOD","geometry":env,"geometryType":"esriGeometryEnvelope","inSR":4326,"spatialRel":"esriSpatialRelIntersects"},page=1000)
     streets=[]
     for f in sfc["features"]:
         try:g=shape(f["geometry"]).intersection(boundary)
@@ -350,7 +355,7 @@ def main():
       "gap_area_m2":round(gap,3),
       "overlap_area_m2":round(overlap,3),
       "street_source":STREETS_URL.rsplit("/query",1)[0],
-      "street_layer":"SIP Wrocławia / podklad_mocny_odniesienie / Osie ulic (18)",
+      "street_layer":"SIP Wrocławia / search / Odcinki osi ulic (2), tylko STATUS_KOD=istniejąca",
       "notes":["Wykaz adresów wejściowych ograniczony do adresów rozpoznanych przez reguły propozycji miasta 2027.","Siatka ulic pochodzi z oficjalnej warstwy osi ulic SIP Wrocławia; na mapie nie renderuje się nazw."]
     }
     (DATA/"validation.json").write_text(json.dumps(validation,ensure_ascii=False,indent=2),encoding="utf-8")
