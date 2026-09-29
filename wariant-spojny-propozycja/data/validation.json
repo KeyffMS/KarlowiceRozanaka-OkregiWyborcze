@@ -1,0 +1,25 @@
+{
+  "source_residential_addresses": 3670,
+  "variant_assigned_addresses": 3670,
+  "unassigned_source_addresses": 0,
+  "addresses_outside_variant_polygon": 123,
+  "district_address_counts": {
+    "1": 701,
+    "2": 1634,
+    "3": 330,
+    "4": 254,
+    "5": 751
+  },
+  "street_features_geoportal": 0,
+  "parcels": 4495,
+  "parcel_conflicts": 11,
+  "coverage_ratio": 0.92175264,
+  "gap_area_m2": 867967.89,
+  "overlap_area_m2": 0.003,
+  "street_source": "https://gis.um.wroc.pl/portal_srv/rest/services/search/MapServer/2",
+  "street_layer": "SIP Wrocławia / search / Odcinki osi ulic (2), tylko STATUS_KOD=istniejąca",
+  "notes": [
+    "Wykaz adresów wejściowych ograniczony do adresów rozpoznanych przez reguły propozycji miasta 2027.",
+    "Siatka ulic pochodzi z oficjalnej warstwy osi ulic SIP Wrocławia; na mapie nie renderuje się nazw."
+  ]
+}
