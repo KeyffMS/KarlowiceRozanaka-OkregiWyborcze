@@ -127,9 +127,9 @@ def variant_district(street,number):
       "kornela ujejskiego","ujejskiego","norberta bonczyka","bonczyka","leopolda staffa","staffa","ludwika nabielaka","nabielaka",
       "marii konopnickiej","konopnickiej","jozefa pilsudskiego","pilsudskiego","samuela bogumila lindego","lindego",
       "seweryna goszczynskiego","goszczynskiego","skwer obroncow helu","stanislawa grochowiaka","grochowiaka","stanislawa pietaka","pietaka",
-      "tadeusza gajcego","gajcego","tadeusza boya zelezynskiego","boya zelezynskiego","tadeusza micinskiego","micinskiego",
+      "tadeusza gajcego","gajcego","tadeusza boya zelenskiego","boya zelenskiego","tadeusza micinskiego","micinskiego",
       "tadeusza zelenaya","zelenaya","teofila lenartowicza","lenartowicza","waclawa berenta","berenta","waclawa gasiorowskiego","gasiorowskiego",
-      "waclawa potockiego","potockiego","wladyslawa ancyca","ancyca","wladyslawa broniewskiego","broniewskiego","wladyslawa orkana","orkana",
+      "waclawa potockiego","potockiego","wladyslawa anczyca","anczyca","wladyslawa broniewskiego","broniewskiego","wladyslawa orkana","orkana",
       "wladyslawa syrokomli","syrokomli","wlodzimierza perzynskiego","perzynskiego","zawalna","zmigrodzka"
     }
     d3={
