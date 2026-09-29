@@ -329,6 +329,18 @@ def main():
 
     districts={d:poly(unary_union(parts[d]).intersection(boundary)) for d in range(1,6)}
 
+    # Korekta wyłącznie numeryczna dla punktów leżących dokładnie na granicy
+    # po operacjach Voronoi / transformacjach CRS. Bufor 0,15 m nie zmienia
+    # merytorycznego przebiegu granicy, a gwarantuje walidację punktów-kotwic.
+    for row in source_rows:
+        d=row["district"]; p=row["point"]
+        if districts[d].covers(p): continue
+        patch=poly(unproj(proj(p).buffer(0.15)).intersection(boundary))
+        districts[d]=poly(districts[d].union(patch))
+        for od in range(1,6):
+            if od!=d:
+                districts[od]=poly(districts[od].difference(patch))
+
     # Oficjalne odcinki osi ulic z SIP Wrocławia. Nazwy pobieramy wyłącznie
     # technicznie; w PDF nie są renderowane.
     sfc=query_geojson(STREETS_URL,{"where":"1=1","outFields":"OBJECTID,KLASA,KATEGORIA,STATUS_KOD","geometry":env,"geometryType":"esriGeometryEnvelope","inSR":4326,"spatialRel":"esriSpatialRelIntersects"},page=1000)
