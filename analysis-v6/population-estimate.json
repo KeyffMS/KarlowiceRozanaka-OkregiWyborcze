@@ -1,0 +1,86 @@
+{
+  "methodology": {
+    "official_total_date": "2026-06-30",
+    "official_total": 29252,
+    "official_city_proposal_district_counts": {
+      "1": 5824,
+      "2": 3663,
+      "3": 4767,
+      "4": 8110,
+      "5": 6888
+    },
+    "demography_source": "SIP Wroclaw REJSTAT_20251231.shp, permanent registrations at 2025-12-31",
+    "method_a": "2025 census blocks clipped to neighborhood; split by counts of official proposal residential address points, fallback to area; scaled to official 2026 neighborhood total",
+    "method_b": "official 2026 city proposal district totals redistributed according to address-point transfer matrix into custom v6",
+    "combined": "70% method_a + 30% method_b, normalized to 29252"
+  },
+  "address_transfer_matrix": {
+    "1": {
+      "1": 410,
+      "2": 697,
+      "3": 0,
+      "4": 0,
+      "5": 0
+    },
+    "2": {
+      "1": 9,
+      "2": 378,
+      "3": 60,
+      "4": 0,
+      "5": 0
+    },
+    "3": {
+      "1": 0,
+      "2": 489,
+      "3": 434,
+      "4": 0,
+      "5": 0
+    },
+    "4": {
+      "1": 0,
+      "2": 138,
+      "3": 35,
+      "4": 252,
+      "5": 50
+    },
+    "5": {
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 73,
+      "5": 645
+    }
+  },
+  "method_a_2025_scaled_to_2026": {
+    "1": 3790.6055929707054,
+    "2": 8224.753891771285,
+    "3": 3791.484103372609,
+    "4": 6748.470739195761,
+    "5": 6696.685672689639
+  },
+  "method_b_address_transfer": {
+    "1": 2230.788714889386,
+    "2": 11646.230564540145,
+    "3": 3330.728088991521,
+    "4": 5002.88039876851,
+    "5": 7041.372232810439
+  },
+  "combined_estimate": {
+    "1": 3322.6605295463096,
+    "2": 9251.196893601942,
+    "3": 3653.2572990582826,
+    "4": 6224.793637067585,
+    "5": 6800.091640725879
+  },
+  "combined_rounded_100": {
+    "1": 3300,
+    "2": 9300,
+    "3": 3700,
+    "4": 6200,
+    "5": 6800
+  },
+  "sum_combined": 29252.0,
+  "raw_2025_total_inside_neighborhood_est": 29818.035408693107,
+  "scale_2025_to_official_2026_total": 0.9810170119883859,
+  "statistical_regions_used": 42
+}
