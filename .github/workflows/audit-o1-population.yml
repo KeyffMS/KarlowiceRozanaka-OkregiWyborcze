@@ -1,0 +1,28 @@
+name: Audit O1 population
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts-tools/audit-o1-population.py"
+      - ".github/workflows/audit-o1-population.yml"
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install requests geopandas pyogrio shapely
+      - run: python scripts-tools/audit-o1-population.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add analysis-v6/o1-kromera-dlugosza-audit.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Audit O1 Kromera and Dlugosza population"
+          git pull --rebase origin main
+          git push
