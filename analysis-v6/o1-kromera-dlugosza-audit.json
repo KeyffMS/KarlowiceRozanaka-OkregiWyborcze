@@ -1,0 +1,516 @@
+{
+  "target_address_counts": {
+    "Marcina Kromera": 58,
+    "Jana Długosza": 52
+  },
+  "target_regions": [
+    {
+      "REJON": "932670",
+      "SUMA_2025": 822.0,
+      "area_share_in_neighborhood": 0.997202097516944,
+      "area_share_in_O1": 0.9919839190608583,
+      "area_weight_population_O1": 815.4107814680254,
+      "kromera_dlugosza_points": 65,
+      "all_proposal_address_points": 122,
+      "custom_address_counts": {
+        "1": 122,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "target_addresses": [
+        {
+          "street": "Jana Długosza",
+          "number": "30"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "32"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "31a"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "31b"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "35"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "37"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "39"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "34"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "42"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "20-28"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "29"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "7"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "60"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "44"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "13"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "33"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "31"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "23"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "6"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "44a"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "44"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "4"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "9a"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "15"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "18"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "64"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "68"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "62"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "42"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "2"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "48"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "10"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "38"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "8"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "4"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "9"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "19"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "6a"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "3"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "19b"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "17"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "17a"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "41-47"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "36"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "5"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "27"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "19a"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "12"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "49-53"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "40"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "10"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "21"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "2"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "6"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "16"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "25"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "38a"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "8"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "59-75"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "74"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "12"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "14"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "66"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "5A"
+        },
+        {
+          "street": "Jana Długosza",
+          "number": "7A"
+        }
+      ]
+    },
+    {
+      "REJON": "932680",
+      "SUMA_2025": 1192.0,
+      "area_share_in_neighborhood": 0.9999999999999996,
+      "area_share_in_O1": 0.9999999999999996,
+      "area_weight_population_O1": 1191.9999999999995,
+      "kromera_dlugosza_points": 14,
+      "all_proposal_address_points": 90,
+      "custom_address_counts": {
+        "1": 90,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "target_addresses": [
+        {
+          "street": "Marcina Kromera",
+          "number": "69"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "55"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "51"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "65"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "59"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "67"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "53"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "57"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "63"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "61"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "51a"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "51b"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "57a"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "57b"
+        }
+      ]
+    },
+    {
+      "REJON": "932692",
+      "SUMA_2025": 1043.0,
+      "area_share_in_neighborhood": 0.9943945041686169,
+      "area_share_in_O1": 0.9943947447087046,
+      "area_weight_population_O1": 1037.153718731179,
+      "kromera_dlugosza_points": 31,
+      "all_proposal_address_points": 122,
+      "custom_address_counts": {
+        "1": 122,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "target_addresses": [
+        {
+          "street": "Marcina Kromera",
+          "number": "21"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "25a"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "23e"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "23f"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "27"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "23i"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "9"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "17"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "23"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "11"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "25c"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "27a"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "25b"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "15"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "23c"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "23d"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "23a"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "23h"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "23b"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "1"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "19"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "25d"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "7"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "27b"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "3"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "5"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "13"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "25"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "23g"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "21A"
+        },
+        {
+          "street": "Marcina Kromera",
+          "number": "23a/1"
+        }
+      ]
+    }
+  ],
+  "area_proportional_scaled_to_2026_total": {
+    "1": 3850.4468980118854,
+    "2": 8021.734969400931,
+    "3": 4299.697995421517,
+    "4": 6293.767548482126,
+    "5": 6786.352588683543
+  },
+  "majority_region_scaled_to_2026_total": {
+    "1": 3790.4267132353048,
+    "2": 7836.848927641482,
+    "3": 4180.715959006251,
+    "4": 6571.422308443653,
+    "5": 6872.586091673309
+  }
+}
